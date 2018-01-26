@@ -1,5 +1,5 @@
 let chalk = require('chalk');
-
+var fs = require('fs');
 const app = require('./src/app');
 
 // port
@@ -11,5 +11,7 @@ app.listen(port, function(){
 });
 
 app.get('/bingo', function(req, res) {
-    res.end('Bingo')
+    var liste = fs.readFileSync("src/numbers.txt").toString().split("\r\n")
+    liste.pop()
+    res.end(liste.join(","))
 })
