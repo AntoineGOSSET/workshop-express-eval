@@ -10,3 +10,6 @@ app.listen(port, function(){
     console.log(chalk.green('Hello web server'));
 });
 
+app.get('/bingo', function(req, res) {
+    res.end('Bingo')
+})
